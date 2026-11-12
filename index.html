@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Olorato ❤️</title>
+
+<style>
+body {
+    background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 30px 15px;
+    color: #c2185b;
+    min-height: 100vh;
+}
+
+h1 { font-size: 30px; }
+
+.cat {
+    font-size: 100px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    50% { transform: translateY(-12px); }
+}
+
+.envelope {
+    font-size: 100px;
+    cursor: pointer;
+    margin: 25px;
+    transition: transform 0.3s;
+}
+
+.envelope:hover {
+    transform: scale(1.15);
+}
+
+.message {
+    display: none;
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    max-width: 380px;
+    margin: 20px auto;
+    box-shadow: 0 5px 20px #e8a0bb;
+    animation: appear 1s;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+button {
+    background: #e75480;
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Hey Olorato ❤️</h1>
+<h2>A little surprise just for you!</h2>
+
+<div class="cat">🐱</div>
+
+<p>Your little friend has brought you something special!</p>
+
+<div class="envelope" onclick="openLetter()">
+    💌
+</div>
+
+<p>Tap the envelope to open your letter!</p>
+
+<div class="message" id="letter">
+
+    <h1>❤️ YOU CAN DO THIS! ❤️</h1>
+
+    <div style="font-size:65px;">🐱💗</div>
+
+    <h2>Dear Olorato,</h2>
+
+    <p>
+    Never doubt yourself.
+    I know that things might sometimes
+    feel difficult, but I believe in you.
+    </p>
+
+    <p>
+    Keep going, keep smiling and never
+    give up on your dreams.
+    </p>
+
+    <h2>You are stronger than you think! 🌸</h2>
+
+    <h2>I believe in you, Olorato. ❤️</h2>
+
+    <p>Sending you lots of strenth! 💕</p>
+
+    <h2>Always remember: YOU CAN DO THIS! 💌</h2>
+
+</div>
+
+<script>
+function openLetter() {
+    document.getElementById("letter").style.display = "block";
+}
+</script>
+
+</body>
+</html>
