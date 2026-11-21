@@ -4,117 +4,300 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Olorato ❤️</title>
+<title>A Fairytale for Olorato ❤️</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background: linear-gradient(135deg, #ffd6e7, #fff0f5);
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 30px 15px;
-    color: #c2185b;
+    margin: 0;
     min-height: 100vh;
+    background: linear-gradient(135deg, #3c174b, #a43d75, #f5a1bd);
+    color: white;
+    font-family: Georgia, serif;
+    text-align: center;
+    padding: 25px 15px;
 }
 
-h1 { font-size: 30px; }
-
-.cat {
-    font-size: 100px;
-    animation: bounce 2s infinite;
+.container {
+    max-width: 850px;
+    margin: auto;
+    background: rgba(35, 12, 42, 0.75);
+    border: 2px solid #f5c5d6;
+    border-radius: 25px;
+    padding: 25px 18px;
+    box-shadow: 0 0 35px #ff9fc5;
 }
 
-@keyframes bounce {
-    50% { transform: translateY(-12px); }
+h1 {
+    color: #ffd4e5;
+    font-size: clamp(30px, 6vw, 48px);
 }
 
-.envelope {
-    font-size: 100px;
-    cursor: pointer;
-    margin: 25px;
-    transition: transform 0.3s;
+h2 {
+    color: #ffe3ed;
 }
 
-.envelope:hover {
-    transform: scale(1.15);
+.scene {
+    width: 100%;
+    max-width: 750px;
+    height: 330px;
+    margin: 20px auto;
+    background-image: url("fairytale.png");
+    background-size: cover;
+    background-position: center;
+    border: 3px solid #f5c5d6;
+    border-radius: 18px;
 }
 
 .message {
-    display: none;
-    background: white;
-    border-radius: 20px;
-    padding: 25px;
-    max-width: 380px;
-    margin: 20px auto;
-    box-shadow: 0 5px 20px #e8a0bb;
-    animation: appear 1s;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #ffe5ef;
 }
 
-@keyframes appear {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.question {
+    font-size: 25px;
+    color: #ffd1e4;
+    margin: 25px 0;
 }
 
 button {
-    background: #e75480;
-    color: white;
     border: none;
+    border-radius: 30px;
     padding: 14px 25px;
-    border-radius: 25px;
-    font-size: 16px;
+    margin: 8px;
+    font-size: 17px;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.25s;
+}
+
+.yes {
+    background: #ff4f91;
+    color: white;
+}
+
+.yes:hover {
+    transform: scale(1.1);
+    background: #ff76aa;
+}
+
+.no {
+    background: #fff0f5;
+    color: #8c2857;
+}
+
+.actions {
+    position: relative;
+    min-height: 115px;
+    max-width: 480px;
+    margin: auto;
+}
+
+#noButton {
+    position: absolute;
+    left: 58%;
+    top: 15px;
+}
+
+#yesButton {
+    position: relative;
+}
+
+.hidden {
+    display: none;
+}
+
+.date-options button {
+    background: #ffe0eb;
+    color: #852c57;
+    display: block;
+    width: 85%;
+    max-width: 350px;
+    margin: 12px auto;
+}
+
+.date-options button:hover {
+    background: #ff8db9;
+    color: white;
+    transform: scale(1.04);
+}
+
+#result {
+    color: #ffe1ed;
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+footer {
+    margin-top: 30px;
+    color: #ffd4e5;
+    font-style: italic;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Hey Olorato ❤️</h1>
-<h2>A little surprise just for you!</h2>
+<audio id="backgroundMusic" loop preload="none">
+    <source src="while-were-young.mp3" type="audio/mpeg">
+    Your browser does not support audio playback.
+</audio>
 
-<div class="cat">🐱</div>
+<div class="container">
 
-<p>Your little friend has brought you something special!</p>
+    <h1>👑 A Fairytale for Olorato 👑</h1>
 
-<div class="envelope" onclick="openLetter()">
-    💌
-</div>
+    <div class="scene"></div>
 
-<p>Tap the envelope to open your letter!</p>
+    <button id="musicButton" type="button" onclick="toggleMusic()">
+        🎵 Play Our Song
+    </button>
 
-<div class="message" id="letter">
+    <h2>My Beautiful Princess ❤️</h2>
 
-    <h1>❤️ YOU CAN DO THIS! ❤️</h1>
-
-    <div style="font-size:65px;">🐱💗</div>
-
-    <h2>Dear Olorato,</h2>
-
-    <p>
-    Never doubt yourself.
-    I know that things might sometimes
-    feel difficult, but I believe in you.
+    <p class="message">
+        Every fairytale has a prince and a princess.
+        <br>
+        But I don't need a kingdom.
+        <br>
+        I would just love the opportunity
+        to create a beautiful memory with you.
     </p>
 
-    <p>
-    Keep going, keep smiling and never
-    give up on your dreams.
-    </p>
+    <div class="question">
+        Olorato, will you go on a date with me? 💕
+    </div>
 
-    <h2>You are stronger than you think! 🌸</h2>
+    <div class="actions" id="actions">
 
-    <h2>I believe in you, Olorato. ❤️</h2>
+        <button class="yes" id="yesButton" onclick="sayYes()">
+            YES! ❤️
+        </button>
 
-    <p>Sending you lots of strenth! 💕</p>
+        <button class="no" id="noButton"
+                onmouseenter="runAway()"
+                onclick="sayNo()">
+            NO 🙈
+        </button>
 
-    <h2>Always remember: YOU CAN DO THIS! 💌</h2>
+    </div>
+
+    <div id="dateSection" class="hidden">
+
+        <h2>YOU'VE MADE MY DAY! ❤️</h2>
+
+        <p class="message">
+            My princess has accepted the invitation!
+            <br>
+            Now, choose our little adventure. 💕
+        </p>
+
+        <h2>Where shall we go?</h2>
+
+        <div class="date-options">
+
+            <button onclick="chooseDate('Mini Golf ⛳')">
+                ⛳ Mini Golf
+            </button>
+
+            <button onclick="chooseDate('Bowling 🎳')">
+                🎳 Bowling
+            </button>
+
+            <button onclick="chooseDate('Movies 🎬')">
+                🎬 Movies
+            </button>
+
+        </div>
+
+        <p id="result"></p>
+
+    </div>
+
+    <footer>
+        Made with love, especially for Olorato. ❤️
+    </footer>
 
 </div>
 
 <script>
-function openLetter() {
-    document.getElementById("letter").style.display = "block";
+
+let escapeCount = 0;
+
+const noButton = document.getElementById("noButton");
+const actions = document.getElementById("actions");
+
+function runAway() {
+
+    if (escapeCount >= 5) return;
+
+    escapeCount++;
+
+    const maxX = actions.clientWidth - noButton.offsetWidth;
+    const maxY = actions.clientHeight - noButton.offsetHeight;
+
+    noButton.style.left = Math.random() * Math.max(0, maxX) + "px";
+    noButton.style.top = Math.random() * Math.max(0, maxY) + "px";
+}
+
+function sayNo() {
+
+    document.getElementById("dateSection").classList.add("hidden");
+
+    alert("That's completely okay, Olorato. ❤️ Thank you for being honest.");
+}
+
+function sayYes() {
+
+    document.getElementById("actions").classList.add("hidden");
+
+    document.getElementById("dateSection").classList.remove("hidden");
+
+    document.getElementById("dateSection").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+function chooseDate(activity) {
+
+    document.getElementById("result").innerHTML =
+        "It's a date choice! ❤️<br>" +
+        "You chose: " + activity + "<br><br>" +
+        "I can't wait to plan something special with you, Olorato! 💕";
+
+}
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+
+async function toggleMusic() {
+    if (!music || !musicButton) return;
+
+    if (music.paused) {
+        try {
+            await music.play();
+            musicButton.textContent = "🔇 Pause Music";
+        } catch (error) {
+            musicButton.textContent = "🎵 Tap to Play Our Song";
+            alert("The song could not play. Check that while-were-young.mp3 is in the same folder as index.html and uploaded to your website.");
+            console.error("Audio playback error:", error);
+        }
+    } else {
+        music.pause();
+        musicButton.textContent = "🎵 Play Our Song";
+    }
 }
 </script>
 
 </body>
-</html>
+<audio id="backgroundMusic" loop>
+    <source src="while-were-young.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" onclick="toggleMusic()">
+    🎵 Play Our Song
+</button>
